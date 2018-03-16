@@ -14,8 +14,11 @@
 				});
 			}
 
-			function submit() {
-				//document.getElementById("form").submit();
+			function submitForm() {
+				document.getElementById("form").submit();
+			}
+			
+			function submitFormData() {
 				var formData = new FormData(document.getElementById("form"));
 				var xhr = new XMLHttpRequest();
 				xhr.open("POST", "public/save");
@@ -36,7 +39,8 @@
 		<input type="file" name="file">
 	</form>
 	<br>
-	<div onclick="submit();" style="cursor: pointer;width: 100px;border-color: blue;border-width: 3px;border-style: solid;">Submit</div>
+	<div onclick="submitForm();" style="cursor: pointer;width: 200px;border-color: blue;border-width: 3px;border-style: solid;">Submit Form</div>
+	<div onclick="submitFormData();" style="cursor: pointer;width: 200px;border-color: blue;border-width: 3px;border-style: solid;">Submit Using Ajax/FormData</div>	
 
 	</body>
 </html>
