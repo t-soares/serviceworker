@@ -15,13 +15,17 @@
 			}
 
 			function submit() {
-				document.getElementById("form").submit();
+				//document.getElementById("form").submit();
+				var formData = new FormData(document.getElementById("form"));
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", "public/save");
+				xhr.send(formData);
 			}
 		</script>
 	</head>
 	<body>
 
-	<form id="form" action="/public/save" method="POST">
+	<form id="form" action="public/save" method="POST">
 		First name:<br>
 		<input type="text" name="firstname">
 		<br>
