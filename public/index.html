@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', function() {
+					navigator.serviceWorker.register('sw.js').then(function(registration) {
+						// Registration was successful
+						console.log('ServiceWorker registration successful with scope: ', registration.scope);
+					}, function(err) {
+						// registration failed :(
+						console.log('ServiceWorker registration failed: ', err);
+					});
+				});
+			}
+
+			function submit() {
+				document.getElementById("form").submit();
+			}
+		</script>
+	</head>
+	<body>
+
+	<form id="form" action="/public/save" method="POST">
+		First name:<br>
+		<input type="text" name="firstname">
+		<br>
+		Last name:<br>
+		<input type="text" name="lastname">
+		<br>
+		File:<br>
+		<input type="file" name="file">
+	</form>
+	<br>
+	<div onclick="submit();" style="cursor: pointer;width: 100px;border-color: blue;border-width: 3px;border-style: solid;">Submit</div>
+
+	</body>
+</html>
